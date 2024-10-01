@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'inicio/css/nav.css'%}">
+    {% block link %}{% endblock %}
+    <title>Document</title>
+</head>
+<body>
+    <header>
+      <div class="container">
+         <!-- nome do site -->
+        <div class="nav-esquerda">
+            <img src="{% static 'inicio/img/blog.png' %}" alt="">
+              
+            <!-- nav-list base do inicio do site-->
+            <ul class="nav-list">
+                <li><a href="#" class="lista">Home</a></li>
+                <li><a href="#section1" class="lista">Sobre</a></li>
+                <li><a href="#section2" class="lista">Suporte</a></li>
+            </ul>
+        </div>
+         <!-- Link para cadastro  e login -->
+        <div class="user">
+          <ul>
+            <li><a href="" class="login">Login</a></li>
+          </ul>
+        </div>
+
+         <!-- botão de menu para celular -->
+        <div class="menu">
+          <img src="{% static 'inicio/img/menu.png'%}" id="menu">
+        </div>
+      </div>
+
+       <!-- nav-list de menu para celular -->
+      <ul class="nav-list2" id="nav-list2">
+        <li><a href="#" class="lista2">Home</a></li>
+        <br>
+        <li><a href="#section1" class="lista2">Sobre</a></li>
+        <br>
+        <li><a href="#section2" class="lista2">Suporte</a></li>
+    </ul>
+    </header>
+
+     <!-- main para utilizar em outras paginas-->
+    <main>
+      {% block main %}
+      {% endblock %}
+    </main>
+
+    <footer></footer>
+     
+    <script src="{% static 'inicio/js/nav.js'%}"></script>
+    {% block script%}
+    {% endblock %}
+</body>
+</html>

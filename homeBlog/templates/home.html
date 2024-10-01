@@ -1,0 +1,114 @@
+{% extends 'navlist.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block link %}
+     <link rel="stylesheet" href="{% static 'inicio/css/home.css'%}">
+    {% endblock %}
+    <title>Document</title>
+</head>
+<body>
+    {% block main %}
+     <section class="next-banner" id="next-banner">
+     </section>
+     <section class="banner" id="banner"></section>
+     <section class="banner-conteudo">
+        <div class="titulo" id="titulo">
+            <h2 id="banner-h2">Bem vindo ao BlogMY!</h2>
+            <h4 id="banner-h4">Venha conhecer um novo mundo de aventuras!</h4>
+        </div>
+        <div class="container_slide">
+            <div class="wrapper" data-slide="wrapper">
+                <button class="slide-nav-button slide-nav-previous" data-slide="nav-previous-button">&#10094;</button>
+                <button class="slide-nav-button slide-nav-next fas fa-chevron-right" data-slide="nav-next-button">&#10095;</button>
+                <div class="slide-wrapper" data-slide="slide-wrapper">
+                    <div class="slide-list" data-slide="slide-list" data-index="0">
+                        <div class="slide-content">
+                            <img src="{% static 'inicio/img/menino.jpg'%}" class="slide-image">
+                        </div>
+                    </div>
+                    <div class="slide-list" data-slide="slide-list" data-index="1">
+                        <div class="slide-content">
+                            <img src="{% static 'inicio/img/paisagem.jpg'%}" class="slide-image">
+                        </div>
+                    </div>
+                    <div class="slide-list"  data-slide="slide-list" data-index="2">                   
+                        <div class="slide-content">
+                            <img src="{% static 'inicio/img/livros.jpg'%}" class="slide-image">
+                        </div>
+                    </div>
+                    <div class="slide-list"  data-slide="slide-list" data-index="3">
+                        <div class="slide-content">
+                            <img src="{% static 'inicio/img/fantasia.jpg'%}" class="slide-image">
+                        </div>
+                    </div>
+                    <div class="slide-list" data-slide="slide-list" data-index="4">
+                        <div class="slide-content">
+                            <img src="{% static 'inicio/img/casal.jpg'%}" class="slide-image">
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="input" data-slide="controls"></div>
+        </div>
+     </section>
+     <section class="conteudo" id="section1">
+        <div class="header_conteudo">
+            <h2 class="omelhor">O melhor site para se expressar</h2>
+            <hr class="linha">
+            <br>
+            <h5>Criado com o intuito de ajudar você a se conecta com quem mais gosta</h5>
+            <br>
+            <br>
+            <p>Crie sua conta, coloque suas fotos e divirta-se!, nosso site de dá opções de postar fotos, textos, pensamentos, livros entre outros com que você mais gosta, Não perca a oportunidade e cadastre-se!</p>
+            <br>
+        </div>
+        <div class="btn_conteudo"> 
+            <h2 class="cadastre-se">Cadastre-se!</h2>
+            <br>
+            <button class="btn_cadastrar">Experimente Agora</button>
+        </div>
+     </section>
+     <section class="suporte">
+        <div class="title_suporte">
+            <h3 class="title_suporte2">Tem algo errado?</h3>
+        </div>
+        <div class="main_suporte" id="section2">
+            <div class="cart">
+                <h3>Login/Cadastro</h3>
+                <br>
+                <p>Para fazer login basta prencher o fomulário que aparecerá ao apertar nos botoes de Experimentar Agora ou o de Login que está localizado no topo do site. fique atento as mensagens de aviso, elas irão te orientar como fazer seu cadastro da forma mais segura.
+                </p>
+            </div>
+            <div class="cart">
+                <h3>Conta</h3>
+                <br>
+                <p>Para mexer na sua conta basta acessar os Tópicos e cadastrar quantos quiser, game, livros, fotos entre muitos outros, depos vá em assuntos e escolha qual tópico deseja postar um novo assunto, todos os postes daquele tópico serão classificados com o nome do tópico escolhido</p>
+            </div>
+            <div class="cart">
+                <h3>Amigos</h3>
+                <br>
+                <p>para adicionar amigos basta ir para a aba de amigos e procurar pelo nome de sua conta, se o usuário existir aparecerá para adicinar</p>
+            </div>
+        </div>
+        <div class="mais">
+            <h3>Não te ajudou?</h3>
+            <p>mande mensagem por alguns destes contatos e retornarei á você.</p>
+            <ul class="contact2">
+                <li><a href="https://wa.me/5511984870198?text=Olá%2C%20gostei%20do%20seu%20perfil%20podemos%20conversar?" target="_blank" class="icon"><img src="{% static 'inicio/img/whatss.png'%}" alt=""></a></li>
+                <li><a href="mailto:kethcavalari@gmail.com" class="icon"><img src="{% static 'inicio/img/email.png'%}" alt=""></a></li>
+            </ul>
+        </div>
+     </section>
+    {% endblock %}
+
+    {% block script %}
+    <script type="module" src="{% static 'inicio/js/home.js' %}"></script>
+    <script src="{% static 'inicio/js/homeLetras.js' %}"></script>
+    {% endblock %}
+</body>
+</html>

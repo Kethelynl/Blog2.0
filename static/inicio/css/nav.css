@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    font-family: Poppins, sans-serif;
+}
+
+
+/* escondendo o botão para celular  */
+.menu{
+    display: none;
+    z-index: 3;
+}
+
+
+/* escondendo o nav list de celular */
+.nav-list2{
+    display: none;
+    z-index: 3;
+}
+
+
+/* Estilizanndo header para ficar fixa */
+header{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 3;
+}
+
+
+/* Container com todo o nav list */
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* Estilizando o nav-list da esquerda, incluindo simbolo */
+.nav-esquerda{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 360px;
+}
+
+.nav-esquerda img{
+    background-color: transparent;
+    background: none;
+    width: 70px;
+}
+
+/* Fazendo o espaçamento dos itens do nav-list */
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nav-list li a, .nav-list2 a{
+    color: white;
+    position: relative;
+    transition: all ease 0.4s;
+}
+
+.nav-list li a::after, .nav-list2 a::after{
+    content: ''; /* Pseudo-elemento para criar a linha */
+    position: absolute;
+    width: 0; /* Começa com a largura 0 */
+    height: 2px; /* Altura da linha */
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff; /* Cor da linha (preto neste exemplo) */
+    transition: width 0.3s ease; /* Transição suave para a largura */
+}
+
+.nav-list li a:hover::after, .nav-list2 a:hover::after {
+    width: 100%; /* Ao passar o mouse, a linha se expande para a largura total do texto */
+}
+
+/* Estilizando o botão de login */
+.login{
+    border: solid 1px #fff;
+    color: white;
+    padding: 3px 14px 3px;
+    border-radius: 10px;
+    transition: all ease 0.4s;
+    cursor: pointer;
+}
+
+.login:hover{
+    background-color: rgb(219, 220, 221, 0.5);
+}
+
+@media(max-width:430px) {
+    .nav-list{
+        display: none;
+    }
+
+    .menu{
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu img{
+        width: 40px;
+        margin-left: -40%;
+    }
+
+    .login{
+        margin-left: -40%;
+    }
+
+    .nav-esquerda img{
+        margin-left: -70%;
+    }
+
+    .nav-list2.active{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-left: -10%;
+        background-color: rgb(98, 98, 109, 0.4);
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .nav-list2 a{
+        color: white;
+    }
+}

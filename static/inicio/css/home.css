@@ -1,0 +1,460 @@
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #000;
+}
+
+/* imagem de fundo */
+.banner{
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 0;
+    animation: pullCurtain 3s forwards transition 3s ease-in-out;
+    z-index: 2;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 50%; 
+    background: linear-gradient(to top, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 100%);
+    z-index: 1; /* Mantém o gradiente acima da imagem */
+}
+
+
+.banner::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 100%);
+}
+
+.next-banner{
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+@keyframes pullCurtain {
+
+    100% {
+        left: 0; /* Totalmente dentro do contêiner */
+        width: 100%; /* Preenche 100% da largura do contêiner */
+    }
+}
+
+.banner.menino, .next-banner.menino{
+    background-image: url(../img/menino.jpg);
+}
+
+.banner.paisagem, .next-banner.paisagem{
+    background-image: url(../img/paisagem.jpg);
+}
+.banner.livros, .next-banner.livros{
+    background-image: url(../img/livros.jpg);
+}
+.banner.floresta, .next-banner.floresta{
+    background-image: url(../img/fantasia.jpg);
+}
+.banner.casal, .next-banner.casal{
+    background-image: url(../img/casal.jpg);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+/* container com rolamento  */
+.container_slide {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 45vh;
+    top: 300px;
+    z-index: 3;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    right: 10px;
+    position: absolute;
+    width: 400px;
+    padding-bottom: 6px;
+}
+
+.slide-wrapper {
+    display: flex;
+}
+
+.slide-list {
+    cursor: grab;
+    flex-shrink: 0;
+    padding: 0 50px;
+    width: 60vw;
+}
+
+.slide-content {
+    border-radius: 10px;
+    border: 1px solid #fff;
+    box-shadow: #070707 0px 12px 12px;
+    position: relative;
+    width: 300px;
+    height: 150px;
+}
+
+.slide-image {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+/* container com rolamento imagens */
+
+
+
+/* setas de passagem */
+.slide-nav-button {
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.slide-nav-previous {
+   right: 90%;
+}
+
+.slide-nav-next {
+    right: 10px;
+}
+
+
+/* Estilizando os input  */
+
+
+.input {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+}
+
+.radio-btn {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-color: #000;
+    border: solid 2px #ffffff;
+}
+
+.radio-btn.active {
+    background-color: #c5722d;
+}
+/* arrumando os carts da do rolamento inicial */
+.img_rol{
+    cursor: pointer;
+    background: linear-gradient(to top, #31251c, #000, 0.3 );
+    transition: all ease 0.4s;
+}
+
+.img_rol:hover{
+    transform: scale(1.1);
+    
+}
+
+/* container do titulo */
+.titulo{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 40px;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateX(200px);
+    z-index: 3;
+}
+
+.titulo.visible{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.titulo h2{
+    color: white;
+    font-size: 35px;
+    text-shadow: 1px 1px 10px #c5722d;
+}
+
+.titulo h4{
+    color: white;
+}
+
+
+/* container do conteudo sobre  */
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.header_conteudo{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+}
+
+.omelhor{
+    padding: 5px;
+    width: 45%;
+    border-radius: 30px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    font-size: 25px;
+    transform: translateY(30px); /* Faz o texto começar ligeiramente abaixo */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.omelhor.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.linha{
+    border: 2px solid #c5722d;
+    width: 50%;
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateX(200px);
+}
+
+.linha.visible{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.header_conteudo p{
+    padding: 5px 20px 5px;
+}
+
+.btn_conteudo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cadastre-se{
+    color: white;
+    text-shadow: 1px 1px 10px #c5722d;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.cadastre-se.visible{
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.btn_cadastrar{
+    padding: 10px 80px 10px;
+    background-color: #c5722d;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(200px);
+    transition: opacity ease 0.7s, transform 0.7s ease;
+}
+
+.btn_cadastrar:hover{
+    box-shadow: 1px 1px 10px #fff;
+}
+
+.btn_cadastrar.visible{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* estilizando o suporte */
+
+.suporte{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+
+.title_suporte2{
+    margin-top: 100px;
+    color: white;
+}
+
+.main_suporte{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: opacity ease 1s, transform 1s ease;
+    
+}
+
+.cart{
+    background-color: #fff;
+    padding: 70px;
+    margin: 10px;
+    width: 30%; 
+    height: 300px;
+    box-shadow: 1px 1px 10px #ffffff;
+    border-radius: 10px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all ease 0.7s;
+    cursor: pointer;
+}
+
+.main_suporte.visible{
+    opacity: 1;
+    transform: translateX(0);
+}
+.cart:hover{
+    transform: scale(1.1);
+}
+
+
+.mais{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.3);
+
+}
+
+.contact2{
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.icon img{
+    width: 40px;
+    height: 40px;
+}
+
+
+/* Responsividade para tablets e celulares */
+@media(max-width:890px) {
+    .cart{
+        height: 400px;
+    }
+    .main_suporte{
+        flex-direction: column;
+    }
+}
+@media(max-width: 480px){
+    .titulo{
+        text-align: center;
+        margin-right: 30px;
+    }
+
+    .container_slide {
+        position: absolute;
+        height: 45vh;
+        top: 300px;
+        z-index: 3;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+    
+    .slide-list {
+        width: 70vw;
+    }
+
+    .slide-nav-previous {
+        right: 82%;
+    }
+
+    .omelhor{
+        width: 70%;
+    }
+
+    .main_suporte{
+        width: 100%;
+        flex-direction: column;
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .cart{
+        padding: 70px;
+        margin: 10px;
+        width: 60%; 
+        height: 300px;
+    }
+    
+    
+}
